@@ -1,11 +1,13 @@
 package org.example.model;
 
-import javax.persistence.Entity;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import jakarta.persistence.*;
+import lombok.Data;
+
+import java.util.List;
+
 @Entity
+@Data
 public class Content {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -13,29 +15,28 @@ public class Content {
     private String title;
     private String body;
 
-    // Getters and Setters
-    public Long getId() {
-        return id;
-    }
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
-    public String getTitle() {
-        return title;
-    }
+    @OneToMany(mappedBy = "content")
+    private List<Comment> comments;
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+    @OneToMany(mappedBy = "content")
+    private List<Attachment> attachments;
 
-    public String getBody() {
-        return body;
-    }
-
-    public void setBody(String body) {
-        this.body = body;
+    @Override
+    public String toString() {
+        return "Content{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", body='" + body + '\'' +
+                ", category=" + category +
+                '}';
     }
 }
 

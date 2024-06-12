@@ -1,10 +1,12 @@
 package org.example.model;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
+import lombok.Data;
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "audit_logs")
+@Data
 public class AuditLog {
 
     @Id
@@ -17,27 +19,16 @@ public class AuditLog {
     @Column(name = "timestamp")
     private LocalDateTime timestamp;
 
-    public Long getId() {
-        return id;
-    }
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getOperation() {
-        return operation;
-    }
-
-    public void setOperation(String operation) {
-        this.operation = operation;
-    }
-
-    public LocalDateTime getTimestamp() {
-        return timestamp;
-    }
-
-    public void setTimestamp(LocalDateTime timestamp) {
-        this.timestamp = timestamp;
+    @Override
+    public String toString() {
+        return "AuditLog{" +
+                "id=" + id +
+                ", operation='" + operation + '\'' +
+                ", timestamp=" + timestamp +
+                '}';
     }
 }

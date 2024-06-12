@@ -1,0 +1,352 @@
+{
+	"info": {
+		"_postman_id": "6b0b1d69-bcdd-443e-8feb-5b5b806015b9",
+		"name": "Course-work",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "32761587"
+	},
+	"item": [
+		{
+			"name": "create_attachment",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"filename\": \"example.pdf\",\r\n    \"fileType\": \"application/pdf\",\r\n    \"url\": \"http://localhost:8080/files/example.pdf\",\r\n    \"uploadedAt\": \"2023-05-10T14:48:00\",\r\n    \"content\": {\r\n        \"id\": 2\r\n    }\r\n}\r\n\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/attachments"
+			},
+			"response": []
+		},
+		{
+			"name": "create_content",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"Updated Title\",\r\n  \"body\": \"Updated Body\",\r\n  \"category\": {\r\n        \"id\": 3\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/api/contents"
+			},
+			"response": []
+		},
+		{
+			"name": "getId",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/attachments/attachments/4"
+			},
+			"response": []
+		},
+		{
+			"name": "update_attachment",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"filename\": \"updated_example.pdf\",\r\n    \"fileType\": \"application/pdf\",\r\n    \"url\": \"http://localhost:8080/files/updated_example.pdf\",\r\n    \"uploadedAt\": \"2023-05-11T14:48:00\",\r\n    \"content\": {\r\n        \"id\": 2\r\n    }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/attachments/2"
+			},
+			"response": []
+		},
+		{
+			"name": "delete_attachment",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "localhost:8080/attachments/2"
+			},
+			"response": []
+		},
+		{
+			"name": "logs-Created",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"operation\": \"Created new content\",\r\n    \"timestamp\": \"2024-06-10T12:30:00\",\r\n    \"user\": {\r\n        \"id\": 1\r\n    }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/audit-logs"
+			},
+			"response": []
+		},
+		{
+			"name": "getid",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/audit-logs/1"
+			},
+			"response": []
+		},
+		{
+			"name": "update_logs",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"operation\": \"Updated content\",\r\n    \"timestamp\": \"2024-06-11T10:15:00\",\r\n    \"user\": {\r\n        \"id\": 1,\r\n        \"username\": \"editor\",\r\n        \"password\": \"editor123\",\r\n        \"role\": \"editor\"\r\n    }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/audit-logs/1"
+			},
+			"response": []
+		},
+		{
+			"name": "delete_logs",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "localhost:8080/audit-logs/1"
+			},
+			"response": []
+		},
+		{
+			"name": "comments_created",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"author\": \"John Doe\",\r\n    \"text\": \"This is a sample comment.\",\r\n    \"createdAt\": \"2024-06-10T08:00:00\",\r\n    \"content\": {\r\n        \"id\": 2\r\n    }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/comments"
+			},
+			"response": []
+		},
+		{
+			"name": "getID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/comments/3"
+			},
+			"response": []
+		},
+		{
+			"name": "update_comment",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"author\": \"Jane Smith\",\r\n    \"text\": \"This is an updated comment.\",\r\n    \"createdAt\": \"2024-06-11T10:30:00\",\r\n    \"content\": {\r\n        \"id\": 2\r\n    }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/comments/2"
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "localhost:8080/comments/2"
+			},
+			"response": []
+		},
+		{
+			"name": "category_created",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"New Category\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/categories"
+			},
+			"response": []
+		},
+		{
+			"name": "getID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/categories/3"
+			},
+			"response": []
+		},
+		{
+			"name": "updatreCategory",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Updated Category Name\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/categories/3"
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteCategory",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "localhost:8080/categories/5"
+			},
+			"response": []
+		},
+		{
+			"name": "create_users",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"john_doe\",\r\n    \"password\": \"password123\",\r\n    \"role\": \"USER\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/users"
+			},
+			"response": []
+		},
+		{
+			"name": "getID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/users/1"
+			},
+			"response": []
+		},
+		{
+			"name": "update_users",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"updated_username\",\r\n    \"password\": \"updated_password\",\r\n    \"role\": \"admin\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/users/1"
+			},
+			"response": []
+		},
+		{
+			"name": "delete_users",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "localhost:8080/users/3"
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"username": "",
+						"password": ""
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/auth/login?username=name&password=12345",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"login"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "name"
+						},
+						{
+							"key": "password",
+							"value": "12345"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllContent",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/api/contents"
+			},
+			"response": []
+		},
+		{
+			"name": "ContentBYID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/api/contents/2"
+			},
+			"response": []
+		}
+	]
+}
